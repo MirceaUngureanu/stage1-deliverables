@@ -37,12 +37,22 @@
     color: #5f7799;
 }
 .tc-header {
+    padding: 10px 0;
     background-color: #e3e8ec;
 }
 .tc-header--active {
     background-color: white;
     border-top: 2px solid #15a1a2;
 }
+.tc-content {
+    display: none;
+}
+.tc-content h4 {
+    margin-bottom: 15px;
+}
+.tc-content p {
+    margin-bottom: 10px;
+}
 .tc-content--active {
-    background-color: orange;
+    display: block;
 }
