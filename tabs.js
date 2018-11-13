@@ -1,7 +1,7 @@
 (function() {
     function ready() {
-        var contentHeaders = [].slice.call(document.querySelectorAll(".tc-header")),
-            contentTabs = [].slice.call(document.querySelectorAll(".tc-content"));
+        var contentHeaders = Array.from(document.querySelectorAll(".tc-header")),
+            contentTabs = Array.from(document.querySelectorAll(".tc-content"));
 
         function removeClasses() {
             contentHeaders.forEach(function(el) {
@@ -25,9 +25,9 @@
             });
         });
     }
-    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
-        ready();
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", ready);
     } else {
-        document.addEventListener('DOMContentLoaded', ready);
+        ready();
     }
 })();
