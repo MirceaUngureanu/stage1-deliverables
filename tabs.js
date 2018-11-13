@@ -1,7 +1,10 @@
 (function() {
     function ready() {
         var contentHeaders = Array.from(document.querySelectorAll(".tc-header")),
-            contentTabs = Array.from(document.querySelectorAll(".tc-content"));
+            contentTabs = Array.from(document.querySelectorAll(".tc-content")),
+            isMobile = (function() {
+                return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+            })();
 
         function removeClasses() {
             contentHeaders.forEach(function(el) {
@@ -23,6 +26,9 @@
                     currentTab.classList.add("tc-content--active");
                 }
             });
+            if (isMobile && window.innerWidth < 768) {
+                removeClasses();
+            }
         });
     }
     if (document.readyState === "loading") {
